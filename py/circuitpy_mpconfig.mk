@@ -296,7 +296,7 @@ endif
 CFLAGS += -DCIRCUITPY_BITBANG_APA102=$(CIRCUITPY_BITBANG_APA102)
 
 
-# Enabled micropython.native decorator (experimental)
+# Enable micropython.native decorator (experimental)
 ifndef CIRCUITPY_ENABLE_MPY_NATIVE
 CIRCUITPY_ENABLE_MPY_NATIVE = 0
 endif

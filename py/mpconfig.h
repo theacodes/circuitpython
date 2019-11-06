@@ -303,16 +303,25 @@
 #define MICROPY_EMIT_XTENSA (0)
 #endif
 
+// Whether to enable the Xtensawin native code
+#ifndef MICROPY_EMIT_XTENSAWIN
+#define MICROPY_EMIT_XTENSAWIN (0)
+#endif
+
 // Whether to enable the Xtensa inline assembler
 #ifndef MICROPY_EMIT_INLINE_XTENSA
 #define MICROPY_EMIT_INLINE_XTENSA (0)
 #endif
+
 
 // Convenience definition for whether any native emitter is enabled
 #define MICROPY_EMIT_NATIVE (MICROPY_EMIT_X64 || MICROPY_EMIT_X86 || MICROPY_EMIT_THUMB || MICROPY_EMIT_ARM || MICROPY_EMIT_XTENSA)
 
 // Convenience definition for whether any inline assembler emitter is enabled
 #define MICROPY_EMIT_INLINE_ASM (MICROPY_EMIT_INLINE_THUMB || MICROPY_EMIT_INLINE_XTENSA)
+
+// Convenience definition for whether any native or inline assembler emitter is enabled
+#define MICROPY_EMIT_MACHINE_CODE (MICROPY_EMIT_NATIVE || MICROPY_EMIT_INLINE_ASM)
 
 /*****************************************************************************/
 /* Compiler configuration                                                    */
@@ -387,6 +396,11 @@
 // Whether to enable all debugging outputs (it will be extremely verbose)
 #ifndef MICROPY_DEBUG_VERBOSE
 #define MICROPY_DEBUG_VERBOSE (0)
+#endif
+
+// Whether to enable debugging versions of MP_OBJ_NULL/STOP_ITERATION/SENTINEL
+#ifndef MICROPY_DEBUG_MP_OBJ_SENTINELS
+#define MICROPY_DEBUG_MP_OBJ_SENTINELS (0)
 #endif
 
 /*****************************************************************************/
